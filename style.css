@@ -5,8 +5,6 @@
   --text-main: #f1f5f9;
   --text-muted: #94a3b8;
   --accent-cyan: #00f2fe;
-  --accent-violet: #7928ca;
-  --accent-neon-green: #39ff14;
 }
 
 * {
@@ -40,17 +38,39 @@ body {
   backdrop-filter: blur(12px);
 }
 
+/* Header dengan Animasi Berkedip 3 Warna */
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 0.8rem;
-  /* Warna Teks: Gradient Ungu Kebiruan */
-  background: linear-gradient(135deg, #7928ca, #3b82f6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  animation: glowThreeColors 6s infinite alternate ease-in-out;
+}
+
+/* Animasi Transisi Teks & Glow Neon (Ungu, Biru, Hijau Stabilo) */
+@keyframes glowThreeColors {
+  /* Warna 1: Ungu (#7928ca) */
+  0%, 100% {
+    color: #7928ca;
+    text-shadow: 
+      0 0 10px rgba(121, 40, 202, 0.8),
+      0 0 20px rgba(121, 40, 202, 0.4);
+  }
   
-  /* Efek Glow Neon Hijau Stabilo */
-  filter: drop-shadow(0 0 8px rgba(57, 255, 20, 0.8)) 
-          drop-shadow(0 0 20px rgba(57, 255, 20, 0.4));
+  /* Warna 2: Biru (#3b82f6) */
+  33% {
+    color: #3b82f6;
+    text-shadow: 
+      0 0 10px rgba(59, 130, 246, 0.8),
+      0 0 20px rgba(59, 130, 246, 0.4);
+  }
+
+  /* Warna 3: Hijau Stabilo (#39ff14) */
+  66% {
+    color: #39ff14;
+    text-shadow: 
+      0 0 10px rgba(57, 255, 20, 0.8),
+      0 0 25px rgba(57, 255, 20, 0.5);
+  }
 }
 
 .hero p {
