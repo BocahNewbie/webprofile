@@ -1,0 +1,36 @@
+{
+  "rewrites": [
+    {
+      "source": "/bertani",
+      "destination": "https://game-bertani.vercel.app"
+    },
+    {
+      "source": "/bertani/:path*",
+      "destination": "https://game-bertani.vercel.app/:path*"
+    },
+    {
+      "source": "/racing",
+      "destination": "https://teambocahracing.vercel.app"
+    },
+    {
+      "source": "/racing/:path*",
+      "destination": "https://teambocahracing.vercel.app/:path*"
+    },
+    {
+      "source": "/invitation",
+      "destination": "https://invitation-wedding-ivory.vercel.app"
+    },
+    {
+      "source": "/invitation/:path*",
+      "destination": "https://invitation-wedding-ivory.vercel.app/:path*"
+    },
+    {
+      "source": "/pendaftaran",
+      "destination": "https://pendaftaran-bybn.vercel.app"
+    },
+    {
+      "source": "/pendaftaran/:path*",
+      "destination": "https://pendaftaran-bybn.vercel.app/:path*"
+    }
+  ]
+}
