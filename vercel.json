@@ -17,20 +17,82 @@
       "destination": "https://teambocahracing.vercel.app/:path*"
     },
     {
-      "source": "/invitation",
-      "destination": "https://invitation-wedding-ivory.vercel.app"
-    },
-    {
-      "source": "/invitation/:path*",
-      "destination": "https://invitation-wedding-ivory.vercel.app/:path*"
-    },
-    {
       "source": "/pendaftaran",
       "destination": "https://pendaftaran-bybn.vercel.app"
     },
     {
       "source": "/pendaftaran/:path*",
       "destination": "https://pendaftaran-bybn.vercel.app/:path*"
+    },
+
+    // --- CONTOH WEDDING 1 (Adzka & Ina / Main Demo) ---
+    {
+      "source": "/weddingadzkaina",
+      "destination": "https://invitation-satu.app"
+    },
+    {
+      "source": "/weddingadzkaina/:path*",
+      "destination": "https://invitation-wedding-ivory.vercel.app/:path*"
+    },
+
+    // --- CONTOH WEDDING 2 ---
+    {
+      "source": "/wedding2",
+      "destination": "https://link-project-wedding-2.vercel.app"
+    },
+    {
+      "source": "/wedding2/:path*",
+      "destination": "https://link-project-wedding-2.vercel.app/:path*"
+    },
+
+    // --- CONTOH WEDDING 3 ---
+    {
+      "source": "/wedding3",
+      "destination": "https://link-project-wedding-3.vercel.app"
+    },
+    {
+      "source": "/wedding3/:path*",
+      "destination": "https://link-project-wedding-3.vercel.app/:path*"
+    },
+
+    // --- CONTOH WEDDING 4 ---
+    {
+      "source": "/wedding4",
+      "destination": "https://link-project-wedding-4.vercel.app"
+    },
+    {
+      "source": "/wedding4/:path*",
+      "destination": "https://link-project-wedding-4.vercel.app/:path*"
+    },
+
+    // --- CONTOH WEDDING 5 ---
+    {
+      "source": "/wedding5",
+      "destination": "https://link-project-wedding-5.vercel.app"
+    },
+    {
+      "source": "/wedding5/:path*",
+      "destination": "https://link-project-wedding-5.vercel.app/:path*"
+    },
+
+    // --- CONTOH WEDDING 6 ---
+    {
+      "source": "/wedding6",
+      "destination": "https://link-project-wedding-6.vercel.app"
+    },
+    {
+      "source": "/wedding6/:path*",
+      "destination": "https://link-project-wedding-6.vercel.app/:path*"
+    },
+    
+    // --- CONTOH WEDDING 7 ---
+    {
+      "source": "/wedding7",
+      "destination": "https://link-project-wedding-7.vercel.app"
+    },
+    {
+      "source": "/wedding7/:path*",
+      "destination": "https://link-project-wedding-7.vercel.app/:path*"
     }
   ]
 }
