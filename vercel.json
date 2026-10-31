@@ -27,72 +27,72 @@
 
     // --- CONTOH WEDDING 1 (Adzka & Ina / Main Demo) ---
     {
-      "source": "/weddingadzkaina",
-      "destination": "https://invitation-satu.app"
+      "source": "/contoh-wedding/adzka-ina",
+      "destination": "https://invitation-satu..vercel.app"
     },
     {
-      "source": "/weddingadzkaina/:path*",
-      "destination": "https://invitation-wedding-ivory.vercel.app/:path*"
+      "source": "/contoh-wedding/adzka-ina/:path*",
+      "destination": "https://invitation-satu.vercel.app/:path*"
     },
 
     // --- CONTOH WEDDING 2 ---
     {
-      "source": "/wedding2",
-      "destination": "https://link-project-wedding-2.vercel.app"
+      "source": "/contoh-wedding/adzka-ina",
+      "destination": "https://invitation-dua.vercel.app"
     },
     {
-      "source": "/wedding2/:path*",
-      "destination": "https://link-project-wedding-2.vercel.app/:path*"
+      "source": "/contoh-wedding/adzka-ina/:path*",
+      "destination": "https://invitation-dua.vercel.app/:path*"
     },
 
     // --- CONTOH WEDDING 3 ---
     {
-      "source": "/wedding3",
-      "destination": "https://link-project-wedding-3.vercel.app"
+      "source": "/contoh-wedding/adzka-ina",
+      "destination": "https://invitation-tiga.vercel.app"
     },
     {
-      "source": "/wedding3/:path*",
-      "destination": "https://link-project-wedding-3.vercel.app/:path*"
+      "source": "/contoh-wedding/adzka-ina/:path*",
+      "destination": "https://invitation-tiga.vercel.app/:path*"
     },
 
     // --- CONTOH WEDDING 4 ---
     {
-      "source": "/wedding4",
-      "destination": "https://link-project-wedding-4.vercel.app"
+      "source": "/contoh-wedding/adzka-ina",
+      "destination": "https://invitation-empat.vercel.app"
     },
     {
-      "source": "/wedding4/:path*",
-      "destination": "https://link-project-wedding-4.vercel.app/:path*"
+      "source": "/contoh-wedding/adzka-ina/:path*",
+      "destination": "https://invitation-empat.vercel.app/:path*"
     },
 
     // --- CONTOH WEDDING 5 ---
     {
-      "source": "/wedding5",
-      "destination": "https://link-project-wedding-5.vercel.app"
+      "source": "/contoh-wedding/adzka-ina",
+      "destination": "https://invitation-lima.vercel.app"
     },
     {
-      "source": "/wedding5/:path*",
-      "destination": "https://link-project-wedding-5.vercel.app/:path*"
+      "source": "/contoh-wedding/adzka-ina/:path*",
+      "destination": "https://invitation-lima.vercel.app/:path*"
     },
 
     // --- CONTOH WEDDING 6 ---
     {
-      "source": "/wedding6",
-      "destination": "https://link-project-wedding-6.vercel.app"
+      "source": "/contoh-wedding/adzka-ina",
+      "destination": "https://invitation-enam.vercel.app"
     },
     {
-      "source": "/wedding6/:path*",
-      "destination": "https://link-project-wedding-6.vercel.app/:path*"
+      "source": "/contoh-wedding/adzka-ina/:path*",
+      "destination": "https://invitation-enam.vercel.app/:path*"
     },
     
     // --- CONTOH WEDDING 7 ---
     {
-      "source": "/wedding7",
-      "destination": "https://link-project-wedding-7.vercel.app"
+      "source": "/contoh-wedding/adzka-ina",
+      "destination": "https://invitation-tujuh.vercel.app"
     },
     {
-      "source": "/wedding7/:path*",
-      "destination": "https://link-project-wedding-7.vercel.app/:path*"
+      "source": "/contoh-wedding/adzka-ina/:path*",
+      "destination": "https://invitation-tujuh.vercel.app/:path*"
     }
   ]
 }
