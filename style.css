@@ -333,14 +333,3 @@ footer {
   box-shadow: 0 0 12px rgba(0, 242, 254, 0.3);
   color: #00f2fe;
 }
-
-/* Panah Indikator Kanan */
-.modal-btn-link::after {
-  content: "→";
-  font-size: 1.1rem;
-  transition: transform 0.2s ease;
-}
-
-.modal-btn-link:hover::after {
-  transform: translateX(3px);
-}
