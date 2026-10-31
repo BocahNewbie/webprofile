@@ -24,8 +24,6 @@
       "source": "/pendaftaran/:path*",
       "destination": "https://pendaftaran-bybn.vercel.app/:path*"
     },
-
-    // --- 7 CONTOH DEMO WEDDING ---
     {
       "source": "/wedding1",
       "destination": "https://invitation-satu.vercel.app"
