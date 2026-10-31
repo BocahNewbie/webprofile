@@ -1,14 +1,14 @@
 const CONFIG = {
   profile: {
-    title: "Selamat Datang di Portofolio Saya",
-    description: "Saya seorang pengembang web yang berfokus pada pembuatan aplikasi interaktif, platform pendaftaran digital, dan media undangan online modern."
+    title: "Selamat Datang di Rumah Bocah",
+    description: "Saya seorang karyawan swasta yang juga melayani platform pendaftaran digital, dan media undangan online modern. Lalu project terbaru saya adalah sedang mengembangkan aplikasi interaktif"
   },
   projects: [
     {
       id: "game",
       tag: "Interactive Game",
       title: "Browser Web Game",
-      description: "Game berbasis web interaktif yang dikembangkan menggunakan HTML5 Canvas dan JavaScript.",
+      description: "Game berbasis web interaktif yang masih perlu dikembangkan.",
       fullDescription: "Project game berbasis web interaktif dengan mekanik gameplay yang ringan dan responsif. Pengguna dapat langsung memainkan game tanpa perlu melakukan instalasi tambahan.",
       techStack: ["HTML5", "CSS3", "JavaScript"],
       links: [
@@ -20,8 +20,8 @@ const CONFIG = {
       id: "pendaftaran",
       tag: "Web Application",
       title: "Sistem Pendaftaran Online",
-      description: "Platform formulir digital terintegrasi untuk mengelola registrasi peserta.",
-      fullDescription: "Sistem pendaftaran online berbasis web yang dirancang untuk memudahkan manajemen formulir registrasi.",
+      description: "Platform formulir digital terintegrasi.",
+      fullDescription: "Sistem pendaftaran online berbasis web yang dirancang untuk memudahkan manajemen formulir registrasi dalam skala kecil.",
       techStack: ["HTML/CSS", "JavaScript", "Google Apps Script"],
       links: [
         { label: "Buka Aplikasi Pendaftaran", url: "/pendaftaran" }
@@ -31,8 +31,8 @@ const CONFIG = {
       id: "invitation",
       tag: "Digital Platform",
       title: "Undangan Digital Interaktif",
-      description: "Web undangan acara dengan desain modern dan fitur interaktif.",
-      fullDescription: "Platform undangan digital serbaguna yang menyajikan tampilan elegan dengan fitur hitung mundur dan integrasi peta.",
+      description: "Web undangan acara baik Wedding, Khitanan, Birthday Party atau undangan makan.",
+      fullDescription: "Platform undangan digital untuk kalian yang kesusahan untuk menjangkau saudara jauh, dengan fitur hitung mundur dan integrasi peta. Lalu untuk tampilan bisa di sesuaikan dengan yang kalian inginkan",
       techStack: ["HTML5", "CSS Glassmorphism", "JavaScript"],
       links: [
         { label: "Lihat Undangan", url: "/invitation" }
