@@ -1,8 +1,8 @@
 const CONFIG = {
   profile: {
     title: "Selamat Datang di Rumah Bocah",
-    subtitle: "Digital Solutions Partner",
-    description: "Pegawai swasta yang berfokus membangun solusi digital interaktif. Saya melayani pembuatan undangan digital kustom (pernikahan, khitanan, & acara spesial) yang tampilannya disesuaikan penuh dengan keinginan klien, sistem pendaftaran online untuk event & perlombaan tingkat menengah, serta sedang mengembangkan web game interaktif tanpa perlu instalasi."
+    subtitle: "DIGITAL SOLUTION PARTNER",
+    description: "Seseorang yang berfokus membangun solusi digital interaktif. Saya melayani pembuatan undangan digital kustom (pernikahan, khitanan, & acara lainnya) yang tampilannya disesuaikan dengan keinginan kalian, sistem pendaftaran online untuk event & perlombaan tingkat menengah, serta sedang mengembangkan web game interaktif tanpa perlu instalasi."
   },
   projects: [
     {
@@ -32,11 +32,17 @@ const CONFIG = {
       id: "invitation",
       tag: "Digital Platform",
       title: "Undangan Digital Interaktif",
-      description: "Web undangan acara baik Wedding, Khitanan, Birthday Party atau undangan makan.",
-      fullDescription: "Platform undangan digital untuk kalian yang kesusahan untuk menjangkau saudara jauh, dengan fitur hitung mundur dan integrasi peta. Lalu untuk tampilan bisa di sesuaikan dengan yang kalian inginkan",
+      description: "Web undangan acara.",
+      fullDescription: "Platform undangan digital untuk Wedding, Khitanan, Birthday Party atau undangan makan, jika kalian yang kesulitan untuk menjangkau saudara jauh, dengan fitur hitung mundur dan integrasi peta. Lalu untuk tampilan bisa di sesuaikan dengan yang kalian inginkan",
       techStack: ["HTML5", "CSS Glassmorphism", "JavaScript"],
       links: [
-        { label: "Lihat Undangan", url: "/invitation" }
+        { label: "Wedding - Klien 1 (Budi & Ani)", url: "/invitation/wedding-budi-ani" },
+        { label: "Wedding - Klien 2 (Rizky & Maya)", url: "/invitation/wedding-rizky-maya" },
+        { label: "Wedding - Klien 3 (Andi & Cita)", url: "/invitation/wedding-andi-cita" },
+        { label: "Wedding - Klien 4 (Fajar & Dina)", url: "/invitation/wedding-fajar-dina" },
+        { label: "Wedding - Klien 5 (Eko & Sarah)", url: "/invitation/wedding-eko-sarah" },
+        { label: "Lihat Undangan Khitanan", url: "/invitation/khitanan" },
+        { label: "Lihat Undangan Ultah", url: "/invitation/ultah" }
       ]
     }
   ]
