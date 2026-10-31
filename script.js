@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Render Hero
   document.getElementById('profile-title').textContent = CONFIG.profile.title;
+  document.getElementById('profile-subtitle').textContent = CONFIG.profile.subtitle; // Tambahkan baris ini
   document.getElementById('profile-desc').textContent = CONFIG.profile.description;
 
   const projectsGrid = document.getElementById('projects-grid');
