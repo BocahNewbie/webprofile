@@ -31,7 +31,7 @@ const CONFIG = {
     {
       id: "invitation",
       tag: "Digital Platform",
-      title: "Undangan Digital Interaktif",
+      title: "Undangan Digital",
       description: "Web undangan acara.",
       fullDescription: "Platform undangan digital untuk Wedding, Khitanan, Birthday Party atau undangan makan, jika kalian yang kesulitan untuk menjangkau saudara jauh, dengan fitur hitung mundur dan integrasi peta. Lalu untuk tampilan bisa di sesuaikan dengan yang kalian inginkan",
       techStack: ["HTML5", "CSS Glassmorphism", "JavaScript"],
