@@ -36,7 +36,6 @@ const CONFIG = {
       fullDescription: "Platform undangan digital untuk Wedding, Khitanan, Birthday Party atau undangan makan, jika kalian yang kesulitan untuk menjangkau saudara jauh, dengan fitur hitung mundur dan integrasi peta. Lalu untuk tampilan bisa di sesuaikan dengan yang kalian inginkan",
       techStack: ["HTML5", "CSS Glassmorphism", "JavaScript"],
       links: [
-        // Ganti bagian ini di config.js:
         { label: "Contoh Wedding 1", url: "https://invitation-satu.vercel.app" },
         { label: "Contoh Wedding 2", url: "/invitation/wedding-rizky-maya" },
         { label: "Contoh Wedding 3", url: "/invitation/wedding-andi-cita" },
