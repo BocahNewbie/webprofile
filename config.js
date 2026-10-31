@@ -36,13 +36,13 @@ const CONFIG = {
             fullDescription: "Platform undangan digital untuk Wedding, Khitanan, Birthday Party atau undangan makan, jika kalian yang kesulitan untuk menjangkau saudara jauh, dengan fitur hitung mundur dan integrasi peta. Lalu untuk tampilan bisa di sesuaikan dengan yang kalian inginkan",
             techStack: ["HTML5", "CSS Glassmorphism", "JavaScript"],
             links: [
-                { label: "Contoh Wedding 1", url: "/wedding1?to=Tamu+Undangan" },
-                { label: "Contoh Wedding 2", url: "/wedding2?to=Tamu+Undangan" },
-                { label: "Contoh Wedding 3", url: "/wedding3?to=Tamu+Undangan" },
-                { label: "Contoh Wedding 4", url: "/wedding4?to=Tamu+Undangan" },
-                { label: "Contoh Wedding 5", url: "/wedding5?to=Tamu+Undangan" },
-                { label: "Contoh Wedding 6", url: "/wedding6?to=Tamu+Undangan" },
-                { label: "Contoh Wedding 7", url: "/wedding7?to=Tamu+Undangan" }
+                { label: "Contoh Wedding 1", url: "/wedding1" },
+                { label: "Contoh Wedding 2", url: "/wedding2" },
+                { label: "Contoh Wedding 3", url: "/wedding3" },
+                { label: "Contoh Wedding 4", url: "/wedding4" },
+                { label: "Contoh Wedding 5", url: "/wedding5" },
+                { label: "Contoh Wedding 6", url: "/wedding6" },
+                { label: "Contoh Wedding 7", url: "/wedding7" }
             ]
         }
     ]
