@@ -1,7 +1,7 @@
 const CONFIG = {
   profile: {
     title: "Selamat Datang di Rumah Bocah",
-    description: "Saya seorang karyawan swasta yang juga melayani platform pendaftaran digital, dan media undangan online modern. Lalu project terbaru saya adalah sedang mengembangkan aplikasi interaktif"
+    description: "Saya seorang karyawan swasta yang juga melayani platform pendaftaran digital, dan media undangan online modern. Lalu project terbaru saya sedang mengembangkan aplikasi interaktif"
   },
   projects: [
     {
