@@ -25,73 +25,61 @@
       "destination": "https://pendaftaran-bybn.vercel.app/:path*"
     },
 
-    // --- CONTOH WEDDING 1 (Adzka & Ina / Main Demo) ---
+    // --- 7 CONTOH DEMO WEDDING ---
     {
-      "source": "/contoh-wedding/adzka-ina",
-      "destination": "https://invitation-satu..vercel.app"
+      "source": "/wedding1",
+      "destination": "https://invitation-satu.vercel.app"
     },
     {
-      "source": "/contoh-wedding/adzka-ina/:path*",
+      "source": "/wedding1/:path*",
       "destination": "https://invitation-satu.vercel.app/:path*"
     },
-
-    // --- CONTOH WEDDING 2 ---
     {
-      "source": "/contoh-wedding/adzka-ina",
+      "source": "/wedding2",
       "destination": "https://invitation-dua.vercel.app"
     },
     {
-      "source": "/contoh-wedding/adzka-ina/:path*",
+      "source": "/wedding2/:path*",
       "destination": "https://invitation-dua.vercel.app/:path*"
     },
-
-    // --- CONTOH WEDDING 3 ---
     {
-      "source": "/contoh-wedding/adzka-ina",
+      "source": "/wedding3",
       "destination": "https://invitation-tiga.vercel.app"
     },
     {
-      "source": "/contoh-wedding/adzka-ina/:path*",
+      "source": "/wedding3/:path*",
       "destination": "https://invitation-tiga.vercel.app/:path*"
     },
-
-    // --- CONTOH WEDDING 4 ---
     {
-      "source": "/contoh-wedding/adzka-ina",
+      "source": "/wedding4",
       "destination": "https://invitation-empat.vercel.app"
     },
     {
-      "source": "/contoh-wedding/adzka-ina/:path*",
+      "source": "/wedding4/:path*",
       "destination": "https://invitation-empat.vercel.app/:path*"
     },
-
-    // --- CONTOH WEDDING 5 ---
     {
-      "source": "/contoh-wedding/adzka-ina",
+      "source": "/wedding5",
       "destination": "https://invitation-lima.vercel.app"
     },
     {
-      "source": "/contoh-wedding/adzka-ina/:path*",
+      "source": "/wedding5/:path*",
       "destination": "https://invitation-lima.vercel.app/:path*"
     },
-
-    // --- CONTOH WEDDING 6 ---
     {
-      "source": "/contoh-wedding/adzka-ina",
+      "source": "/wedding6",
       "destination": "https://invitation-enam.vercel.app"
     },
     {
-      "source": "/contoh-wedding/adzka-ina/:path*",
+      "source": "/wedding6/:path*",
       "destination": "https://invitation-enam.vercel.app/:path*"
     },
-    
-    // --- CONTOH WEDDING 7 ---
     {
-      "source": "/contoh-wedding/adzka-ina",
+      "source": "/wedding7",
       "destination": "https://invitation-tujuh.vercel.app"
     },
     {
-      "source": "/contoh-wedding/adzka-ina/:path*",
+      "source": "/wedding7/:path*",
       "destination": "https://invitation-tujuh.vercel.app/:path*"
     }
   ]
