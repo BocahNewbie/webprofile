@@ -6,6 +6,7 @@
   --text-muted: #94a3b8;
   --accent-cyan: #00f2fe;
   --accent-violet: #7928ca;
+  --accent-neon-green: #39ff14;
 }
 
 * {
@@ -42,9 +43,14 @@ body {
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 0.8rem;
-  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+  /* Warna Teks: Gradient Ungu Kebiruan */
+  background: linear-gradient(135deg, #7928ca, #3b82f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  
+  /* Efek Glow Neon Hijau Stabilo */
+  filter: drop-shadow(0 0 8px rgba(57, 255, 20, 0.8)) 
+          drop-shadow(0 0 20px rgba(57, 255, 20, 0.4));
 }
 
 .hero p {
