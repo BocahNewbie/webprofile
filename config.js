@@ -36,13 +36,13 @@ const CONFIG = {
       fullDescription: "Platform undangan digital untuk Wedding, Khitanan, Birthday Party atau undangan makan, jika kalian yang kesulitan untuk menjangkau saudara jauh, dengan fitur hitung mundur dan integrasi peta. Lalu untuk tampilan bisa di sesuaikan dengan yang kalian inginkan",
       techStack: ["HTML5", "CSS Glassmorphism", "JavaScript"],
       links: [
-        { label: "Wedding - Klien 1 (Budi & Ani)", url: "/invitation/wedding-budi-ani" },
-        { label: "Wedding - Klien 2 (Rizky & Maya)", url: "/invitation/wedding-rizky-maya" },
-        { label: "Wedding - Klien 3 (Andi & Cita)", url: "/invitation/wedding-andi-cita" },
-        { label: "Wedding - Klien 4 (Fajar & Dina)", url: "/invitation/wedding-fajar-dina" },
-        { label: "Wedding - Klien 5 (Eko & Sarah)", url: "/invitation/wedding-eko-sarah" },
-        { label: "Lihat Undangan Khitanan", url: "/invitation/khitanan" },
-        { label: "Lihat Undangan Ultah", url: "/invitation/ultah" }
+        { label: "Contoh Wedding 1", url: "https://invitation-satu.vercel.app/" },
+        { label: "Contoh Wedding 2", url: "/invitation/wedding-rizky-maya" },
+        { label: "Contoh Wedding 3", url: "/invitation/wedding-andi-cita" },
+        { label: "Contoh Wedding 4", url: "/invitation/wedding-fajar-dina" },
+        { label: "Contoh Wedding 5", url: "/invitation/wedding-eko-sarah" },
+        { label: "Contoh Wedding 6", url: "/invitation/khitanan" },
+        { label: "Contoh Wedding 7", url: "/invitation/ultah" }
       ]
     }
   ]
