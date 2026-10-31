@@ -288,25 +288,59 @@ footer {
   letter-spacing: 0.5px;
 }
 
+/* Modal Links Container (Vertikal Scroll List) */
 .modal-links-container {
   display: flex;
+  flex-direction: column;
   gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
 }
 
+/* Scrollbar Custom Rapi */
+.modal-links-container::-webkit-scrollbar {
+  width: 5px;
+}
+.modal-links-container::-webkit-scrollbar-thumb {
+  background: var(--accent-cyan);
+  border-radius: 4px;
+}
+
+/* Modal Card Item */
 .modal-btn-link {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--accent-cyan), #00c6ff);
-  color: #000;
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  border-radius: 10px;
+  padding: 0.85rem 1.2rem;
+  color: var(--text-main);
   text-decoration: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  transition: opacity 0.2s ease;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
 }
 
+/* Efek Hover Neon Cyan */
 .modal-btn-link:hover {
-  opacity: 0.9;
+  background: rgba(0, 242, 254, 0.1);
+  border-color: #00f2fe;
+  transform: translateX(4px);
+  box-shadow: 0 0 12px rgba(0, 242, 254, 0.3);
+  color: #00f2fe;
+}
+
+/* Panah Indikator Kanan */
+.modal-btn-link::after {
+  content: "→";
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.modal-btn-link:hover::after {
+  transform: translateX(3px);
 }
