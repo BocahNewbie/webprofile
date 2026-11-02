@@ -25,59 +25,59 @@
       "destination": "https://pendaftaran-bybn.vercel.app/:path*"
     },
     {
-      "source": "/wedding1",
+      "source": "/Natural?to=Warga+Indonesia",
       "destination": "https://invitation-satu.vercel.app"
     },
     {
-      "source": "/wedding1/:path*",
+      "source": "/Natural?to=Warga+Indonesia/:path*",
       "destination": "https://invitation-satu.vercel.app/:path*"
     },
     {
-      "source": "/wedding2",
+      "source": "/Java?to=Warga+Indonesia",
       "destination": "https://invitation-dua.vercel.app"
     },
     {
-      "source": "/wedding2/:path*",
+      "source": "/Java?to=Warga+Indonesia/:path*",
       "destination": "https://invitation-dua.vercel.app/:path*"
     },
     {
-      "source": "/wedding3",
+      "source": "/Spesial?to=Warga+Indonesia",
       "destination": "https://invitation-tiga.vercel.app"
     },
     {
-      "source": "/wedding3/:path*",
+      "source": "/Spesial?to=Warga+Indonesia/:path*",
       "destination": "https://invitation-tiga.vercel.app/:path*"
     },
     {
-      "source": "/wedding4",
+      "source": "/Merah?to=Warga+Indonesia",
       "destination": "https://invitation-empat.vercel.app"
     },
     {
-      "source": "/wedding4/:path*",
+      "source": "/Merah?to=Warga+Indonesia/:path*",
       "destination": "https://invitation-empat.vercel.app/:path*"
     },
     {
-      "source": "/wedding5",
+      "source": "/Langit?to=Warga+Indonesia",
       "destination": "https://invitation-lima.vercel.app"
     },
     {
-      "source": "/wedding5/:path*",
+      "source": "/Langit?to=Warga+Indonesia/:path*",
       "destination": "https://invitation-lima.vercel.app/:path*"
     },
     {
-      "source": "/wedding6",
+      "source": "/Sunda?to=Warga+Indonesia",
       "destination": "https://invitation-enam.vercel.app"
     },
     {
-      "source": "/wedding6/:path*",
+      "source": "/Sunda?to=Warga+Indonesia/:path*",
       "destination": "https://invitation-enam.vercel.app/:path*"
     },
     {
-      "source": "/wedding7",
+      "source": "/Ciamis?to=Warga+Indonesia",
       "destination": "https://invitation-tujuh.vercel.app"
     },
     {
-      "source": "/wedding7/:path*",
+      "source": "/Ciamis?to=Warga+Indonesia/:path*",
       "destination": "https://invitation-tujuh.vercel.app/:path*"
     }
   ]
