@@ -20,10 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const card = document.createElement('article');
     card.className = 'project-card';
 
-    const techListHtml = project.techStack
-      .map(tech => `<span class="tech-item">${tech}</span>`)
-      .join('');
-
     card.innerHTML = `
       <div>
         <span class="project-tag">${project.tag}</span>
