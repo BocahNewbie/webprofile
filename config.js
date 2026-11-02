@@ -11,7 +11,6 @@ const CONFIG = {
             title: "Browser Web Game",
             description: "Game berbasis web interaktif yang masih perlu dikembangkan.",
             fullDescription: "Project game berbasis web interaktif dengan mekanik gameplay yang ringan dan responsif. Pengguna dapat langsung memainkan game tanpa perlu melakukan instalasi tambahan.",
-            techStack: ["HTML5", "CSS3", "JavaScript"],
             links: [
                 { label: "Game Bertani", url: "/bertani" },
                 { label: "Team Bocah Racing", url: "/racing" }
@@ -20,10 +19,9 @@ const CONFIG = {
         {
             id: "pendaftaran",
             tag: "Web Application",
-            title: "Sistem Pendaftaran Online",
+            title: "Sistem Aplikasi Online",
             description: "Platform formulir digital terintegrasi.",
-            fullDescription: "Sistem pendaftaran online berbasis web yang dirancang untuk memudahkan manajemen formulir registrasi dalam skala kecil.",
-            techStack: ["HTML/CSS", "JavaScript", "Google Apps Script"],
+            fullDescription: "Sistem pendaftaran online dan lainnya yang berbasis web dirancang untuk memudahkan manajemen formulir registrasi dalam skala kecil.",
             links: [
                 { label: "Buka Aplikasi Pendaftaran", url: "/pendaftaran" }
             ]
@@ -31,18 +29,17 @@ const CONFIG = {
         {
             id: "invitation",
             tag: "Digital Platform",
-            title: "Undangan Digital Interaktif",
+            title: "Undangan Digital",
             description: "Web undangan acara.",
-            fullDescription: "Platform undangan digital untuk Wedding, Khitanan, Birthday Party atau undangan makan, jika kalian yang kesulitan untuk menjangkau saudara jauh, dengan fitur hitung mundur dan integrasi peta. Lalu untuk tampilan bisa di sesuaikan dengan yang kalian inginkan",
-            techStack: ["HTML5", "CSS Glassmorphism", "JavaScript"],
+            fullDescription: "Platform undangan digital untuk Wedding, Khitanan, Birthday Party atau undangan makan, memudahkan silaturahmi dengan saudara jauh, dengan fitur hitung mundur dan integrasi peta. Lalu untuk tampilan bisa di sesuaikan dengan yang kalian inginkan",
             links: [
-                { label: "Contoh Wedding 1", url: "/wedding1" },
-                { label: "Contoh Wedding 2", url: "/wedding2" },
-                { label: "Contoh Wedding 3", url: "/wedding3" },
-                { label: "Contoh Wedding 4", url: "/wedding4" },
-                { label: "Contoh Wedding 5", url: "/wedding5" },
-                { label: "Contoh Wedding 6", url: "/wedding6" },
-                { label: "Contoh Wedding 7", url: "/wedding7" }
+                { label: "Wedding Natural", url: "/Natural?to=Warga+Indonesia" },
+                { label: "Wedding Java Dinasty", url: "/Java?to=Warga+Indonesia" },
+                { label: "Wedding Spesial", url: "/Spesial?to=Warga+Indonesia" },
+                { label: "Wedding Merah", url: "/Merah?to=Warga+Indonesia" },
+                { label: "Wedding Nuansa Langit", url: "/Langit?to=Warga+Indonesia" },
+                { label: "Wedding Sunda", url: "/Sunda?to=Warga+Indonesia" },
+                { label: "Wedding Ciamis", url: "/Ciamis?to=Warga+Indonesia" }
             ]
         }
     ]
