@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Render Hero
   document.getElementById('profile-title').textContent = CONFIG.profile.title;
-  document.getElementById('profile-subtitle').textContent = CONFIG.profile.subtitle; // Tambahkan baris ini
+  document.getElementById('profile-subtitle').textContent = CONFIG.profile.subtitle;
   document.getElementById('profile-desc').textContent = CONFIG.profile.description;
 
   const projectsGrid = document.getElementById('projects-grid');
@@ -12,10 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalTag = document.getElementById('modal-tag');
   const modalTitle = document.getElementById('modal-title');
   const modalDesc = document.getElementById('modal-desc');
-  const modalTech = document.getElementById('modal-tech');
   const modalLinks = document.getElementById('modal-links');
 
-  // Render Projects Grid
+  // Seleksi elemen teks teknologi di modal (jika masih ada di HTML)
+  const modalTechSection = document.getElementById('modal-tech');
+  const modalTechTitle = modalTechSection ? modalTechSection.previousElementSibling : null;
+
+  // Sembunyikan bagian label "TEKNOLOGI:" di modal jika tidak digunakan
+  if (modalTechSection) modalTechSection.style.display = 'none';
+  if (modalTechTitle && modalTechTitle.classList.contains('modal-section-title')) {
+    modalTechTitle.style.display = 'none';
+  }
+
+  // Render Projects Grid (Tanpa memanggil variabel techListHtml yang error)
   CONFIG.projects.forEach(project => {
     const card = document.createElement('article');
     card.className = 'project-card';
@@ -25,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="project-tag">${project.tag}</span>
         <h3 class="project-title">${project.title}</h3>
         <p class="project-desc">${project.description}</p>
-        <div class="project-tech">${techListHtml}</div>
       </div>
       <button class="btn-link open-modal-btn" data-id="${project.id}">Detail Project</button>
     `;
@@ -41,11 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
     modalTag.textContent = project.tag;
     modalTitle.textContent = project.title;
     modalDesc.textContent = project.fullDescription || project.description;
-
-    // Render Tech Stack
-    modalTech.innerHTML = project.techStack
-      .map(tech => `<span class="tech-item">${tech}</span>`)
-      .join('');
 
     // Render External Links
     modalLinks.innerHTML = project.links
