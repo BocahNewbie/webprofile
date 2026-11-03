@@ -14,17 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalDesc = document.getElementById('modal-desc');
   const modalLinks = document.getElementById('modal-links');
 
-  // Seleksi elemen teks teknologi di modal (jika masih ada di HTML)
-  const modalTechSection = document.getElementById('modal-tech');
-  const modalTechTitle = modalTechSection ? modalTechSection.previousElementSibling : null;
-
-  // Sembunyikan bagian label "TEKNOLOGI:" di modal jika tidak digunakan
-  if (modalTechSection) modalTechSection.style.display = 'none';
-  if (modalTechTitle && modalTechTitle.classList.contains('modal-section-title')) {
-    modalTechTitle.style.display = 'none';
-  }
-
-  // Render Projects Grid (Tanpa memanggil variabel techListHtml yang error)
+  // Render Projects Grid
   CONFIG.projects.forEach(project => {
     const card = document.createElement('article');
     card.className = 'project-card';
