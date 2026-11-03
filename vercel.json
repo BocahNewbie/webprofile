@@ -25,60 +25,32 @@
       "destination": "https://pendaftaran-bybn.vercel.app/:path*"
     },
     {
-      "source": "/Natural?to=Warga+Indonesia",
+      "source": "/Natural",
       "destination": "https://invitation-satu.vercel.app"
     },
     {
-      "source": "/Natural?to=Warga+Indonesia/:path*",
-      "destination": "https://invitation-satu.vercel.app/:path*"
-    },
-    {
-      "source": "/Java?to=Warga+Indonesia",
+      "source": "/Java",
       "destination": "https://invitation-dua.vercel.app"
     },
     {
-      "source": "/Java?to=Warga+Indonesia/:path*",
-      "destination": "https://invitation-dua.vercel.app/:path*"
-    },
-    {
-      "source": "/Spesial?to=Warga+Indonesia",
+      "source": "/Spesial",
       "destination": "https://invitation-tiga.vercel.app"
     },
     {
-      "source": "/Spesial?to=Warga+Indonesia/:path*",
-      "destination": "https://invitation-tiga.vercel.app/:path*"
-    },
-    {
-      "source": "/Merah?to=Warga+Indonesia",
+      "source": "/Merah",
       "destination": "https://invitation-empat.vercel.app"
     },
     {
-      "source": "/Merah?to=Warga+Indonesia/:path*",
-      "destination": "https://invitation-empat.vercel.app/:path*"
-    },
-    {
-      "source": "/Langit?to=Warga+Indonesia",
+      "source": "/Langit",
       "destination": "https://invitation-lima.vercel.app"
     },
     {
-      "source": "/Langit?to=Warga+Indonesia/:path*",
-      "destination": "https://invitation-lima.vercel.app/:path*"
-    },
-    {
-      "source": "/Sunda?to=Warga+Indonesia",
+      "source": "/Sunda",
       "destination": "https://invitation-enam.vercel.app"
     },
     {
-      "source": "/Sunda?to=Warga+Indonesia/:path*",
-      "destination": "https://invitation-enam.vercel.app/:path*"
-    },
-    {
-      "source": "/Ciamis?to=Warga+Indonesia",
+      "source": "/Ciamis",
       "destination": "https://invitation-tujuh.vercel.app"
-    },
-    {
-      "source": "/Ciamis?to=Warga+Indonesia/:path*",
-      "destination": "https://invitation-tujuh.vercel.app/:path*"
     }
   ]
 }
