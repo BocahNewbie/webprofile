@@ -18,7 +18,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-main);
   line-height: 1.6;
-  padding: 2rem 1rem;
+  padding: 2rem 1rem 90px 1rem; /* Padding bawah ditambah agar konten tidak tertutup music bar */
   min-height: 100vh;
 }
 
@@ -38,7 +38,6 @@ body {
   backdrop-filter: blur(12px);
 }
 
-/* Header Utama: Bold, Clean & Smooth Glow 4 Warna */
 .hero h1 {
   font-size: 2.6rem;
   font-weight: 800;
@@ -47,34 +46,32 @@ body {
   animation: cleanGlow 10s infinite alternate ease-in-out;
 }
 
-/* Transisi Halus 4 Warna Bold: Blue -> Purple -> Cyan -> Neon Green */
 @keyframes cleanGlow {
   0% {
-    color: #2563eb; /* Blue */
+    color: #2563eb;
     text-shadow: 0 0 12px rgba(37, 99, 235, 0.6), 0 0 24px rgba(37, 99, 235, 0.2);
   }
   33% {
-    color: #8a2be2; /* Purple */
+    color: #8a2be2;
     text-shadow: 0 0 12px rgba(138, 43, 226, 0.6), 0 0 24px rgba(138, 43, 226, 0.2);
   }
   66% {
-    color: #00f2fe; /* Cyan */
+    color: #00f2fe;
     text-shadow: 0 0 12px rgba(0, 242, 254, 0.6), 0 0 24px rgba(0, 242, 254, 0.2);
   }
   100% {
-    color: #39ff14; /* Neon Green */
+    color: #39ff14;
     text-shadow: 0 0 12px rgba(57, 255, 20, 0.6), 0 0 24px rgba(57, 255, 20, 0.2);
   }
 }
 
-/* Subtitle Header: Putih Tegas */
 .hero-subtitle {
   font-size: 1.25rem;
-  color: #ffffff; /* Putih murni */
+  color: #ffffff;
   margin-bottom: 1rem;
-  font-weight: 700; /* Bold / Tegas */
+  font-weight: 700;
   letter-spacing: 0.5px;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3); /* Soft white glow */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
 .hero p {
@@ -85,7 +82,6 @@ body {
   line-height: 1.7;
 }
 
-/* Section Title */
 .section-title {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
@@ -94,7 +90,6 @@ body {
   padding-left: 0.75rem;
 }
 
-/* Projects Grid */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -113,7 +108,6 @@ body {
   justify-content: space-between;
 }
 
-/* Kartu Project Neon Hijau Stabilo saat di-hover */
 .project-card:hover {
   transform: translateY(-5px);
   border-color: #39ff14;
@@ -178,7 +172,6 @@ body {
   opacity: 0.9;
 }
 
-/* Footer & Icon Sosial Media */
 footer {
   text-align: center;
   margin-top: 4rem;
@@ -207,7 +200,6 @@ footer {
   text-decoration: none;
 }
 
-/* Icon Sosmed Neon Ungu saat di-hover */
 .social-icon:hover {
   color: #7928ca;
   border-color: #7928ca;
@@ -215,7 +207,6 @@ footer {
   box-shadow: 0 0 15px rgba(121, 40, 202, 0.6);
 }
 
-/* Modal Pop-up Card Project */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -288,7 +279,6 @@ footer {
   letter-spacing: 0.5px;
 }
 
-/* Modal Links Container (Vertikal Scroll List) */
 .modal-links-container {
   display: flex;
   flex-direction: column;
@@ -299,7 +289,6 @@ footer {
   padding-right: 0.25rem;
 }
 
-/* Scrollbar Custom Rapi */
 .modal-links-container::-webkit-scrollbar {
   width: 5px;
 }
@@ -308,7 +297,6 @@ footer {
   border-radius: 4px;
 }
 
-/* Modal Card Item */
 .modal-btn-link {
   display: flex;
   align-items: center;
@@ -325,7 +313,6 @@ footer {
   backdrop-filter: blur(4px);
 }
 
-/* Efek Hover Neon Cyan */
 .modal-btn-link:hover {
   background: rgba(0, 242, 254, 0.1);
   border-color: #00f2fe;
@@ -447,7 +434,6 @@ footer {
     background: rgba(255, 255, 255, 0.15);
 }
 
-/* Modal Music Customization */
 .music-tabs {
     display: flex;
     gap: 10px;
