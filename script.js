@@ -157,7 +157,14 @@ document.addEventListener('DOMContentLoaded', () => {
     musicModal.style.display = 'none';
   }
 
-  // Tab Switcher di dalam Modal Musik
+  // Tutup modal jika klik di luar kotak konten modal
+  musicModal.addEventListener('click', (e) => {
+    if (e.target === musicModal) {
+      closeMusicModal();
+    }
+  });
+
+  // Tab Switcher di dalam Modal Musik (Playlist vs YouTube)
   document.querySelectorAll('.music-tabs .tab-btn').forEach(btn => {
     btn.onclick = (e) => {
       document.querySelectorAll('.music-tabs .tab-btn').forEach(b => b.classList.remove('active'));
@@ -179,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const container = document.getElementById('youtube-player-container');
       container.innerHTML = `<iframe width="0" height="0" src="https://www.youtube.com/embed/${videoId}?autoplay=1" allow="autoplay"></iframe>`;
       
-      audioElement.pause(); // Jeda audio lokal jika sedang berputar
+      audioElement.pause(); // Jeda audio lokal jika sedang memutar lagu dari playlist
       document.getElementById('track-title').innerText = "Custom YouTube Audio";
       document.getElementById('track-artist').innerText = "Streaming dari Link";
       document.getElementById('icon-play').style.display = 'none';
@@ -188,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       closeMusicModal();
     } else {
-      alert("Link YouTube tidak valid! Pastikan formatnya benar.");
+      alert("Link YouTube tidak valid! Pastikan format link benar.");
     }
   };
 
