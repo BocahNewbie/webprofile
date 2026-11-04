@@ -161,28 +161,48 @@ document.addEventListener('DOMContentLoaded', () => {
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   }
 
-  // --- KONTROL MODAL MUSIK & YOUTUBE ---
+  // --- KONTROL MODAL MUSIK & YOUTUBE (POP-UP INTERAKTIF) ---
   const musicModal = document.getElementById('music-modal');
   const playlistBtn = document.getElementById('playlist-btn');
   const youtubeCustomBtn = document.getElementById('youtube-custom-btn');
   const musicModalClose = document.getElementById('music-modal-close');
 
+  function openMusicModal(tabTarget) {
+    if (!musicModal) return;
+    musicModal.classList.add('active');
+
+    // Aktifkan tab yang sesuai (playlist-section atau youtube-section)
+    document.querySelectorAll('.music-tabs .tab-btn').forEach(b => {
+      if (b.getAttribute('data-target') === tabTarget) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
+      }
+    });
+
+    document.querySelectorAll('.music-tab-content').forEach(c => {
+      if (c.id === tabTarget) {
+        c.style.display = 'block';
+      } else {
+        c.style.display = 'none';
+      }
+    });
+  }
+
+  function closeMusicModal() {
+    if (musicModal) musicModal.classList.remove('active');
+  }
+
   if (playlistBtn) {
-    playlistBtn.onclick = () => {
-      if (musicModal) musicModal.style.display = 'flex';
-    };
+    playlistBtn.onclick = () => openMusicModal('playlist-section');
   }
 
   if (youtubeCustomBtn) {
-    youtubeCustomBtn.onclick = () => {
-      if (musicModal) musicModal.style.display = 'flex';
-    };
+    youtubeCustomBtn.onclick = () => openMusicModal('youtube-section');
   }
 
   if (musicModalClose) {
-    musicModalClose.onclick = () => {
-      closeMusicModal();
-    };
+    musicModalClose.onclick = closeMusicModal;
   }
 
   if (musicModal) {
@@ -191,10 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
         closeMusicModal();
       }
     });
-  }
-
-  function closeMusicModal() {
-    if (musicModal) musicModal.style.display = 'none';
   }
 
   // Tab Switcher di dalam Modal Musik
