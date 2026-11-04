@@ -93,7 +93,7 @@
   <div id="music-modal" class="modal-overlay">
       <div class="modal-content music-modal-content">
           <button id="music-modal-close" class="modal-close">&times;</button>
-          <h2 class="project-title" id="music-modal-title">Pilih Lagu</h2>
+          <h2 class="project-title" id="music-modal-title">Pilih Sumber Musik</h2>
           
           <!-- Tab Navigasi Modal -->
           <div class="music-tabs">
@@ -102,18 +102,18 @@
           </div>
 
           <!-- Section 1: 10 Playlist -->
-          <div id="playlist-section" class="music-tab-content active">
+          <div id="playlist-section" class="music-tab-content">
               <div id="playlist-list" class="playlist-container">
-                  <!-- Daftar lagu akan diisi via JavaScript -->
+                  <!-- Daftar lagu dimuat otomatis dari config.js -->
               </div>
           </div>
 
           <!-- Section 2: Input YouTube -->
           <div id="youtube-section" class="music-tab-content" style="display:none;">
-              <p class="project-desc-full">Masukkan link video YouTube yang ingin kamu putar di web:</p>
+              <p class="project-desc-full">Masukkan link video YouTube yang ingin kamu putar sebagai audio di web:</p>
               <div class="youtube-input-group">
                   <input type="text" id="youtube-url-input" placeholder="Contoh: https://www.youtube.com/watch?v=xxxxxx" class="custom-input">
-                  <button id="play-youtube-btn" class="primary-btn">Putar</button>
+                  <button id="play-youtube-btn" class="primary-btn">Putar dari YouTube</button>
               </div>
           </div>
       </div>
@@ -123,7 +123,7 @@
   <audio id="audio-element" preload="metadata"></audio>
   <div id="youtube-player-container" style="display:none;"></div>
 
-  <!-- URUTAN SCRIPT: config.js di atas, diikuti script.js -->
+  <!-- URUTAN SCRIPT: config.js HARUS DI ATAS script.js -->
   <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
