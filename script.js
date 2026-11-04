@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentTrackIndex = 0;
   let isPlaying = false;
   const audioElement = document.getElementById('audio-element');
+  const youtubeContainer = document.getElementById('youtube-player-container');
 
   function initMusicPlayer() {
     const playlistContainer = document.getElementById('playlist-list');
@@ -72,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const item = document.createElement('div');
         item.className = 'playlist-item';
         item.innerHTML = `<span>${index + 1}. ${track.title} - <small>${track.artist}</small></span> <span>▶</span>`;
-        item.onclick = () => playTrack(index);
+        item.onclick = () => playTrackFromPlaylist(index);
         playlistContainer.appendChild(item);
       });
 
@@ -88,7 +89,39 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('track-artist').innerText = MUSIC_PLAYLIST[index].artist;
   }
 
+  // Fungsi Putar dari Playlist (Mematikan YouTube jika sedang aktif)
+  function playTrackFromPlaylist(index) {
+    // Matikan pemutar YouTube agar tidak bentrok
+    if (youtubeContainer) {
+      youtubeContainer.innerHTML = '';
+    }
+
+    loadTrack(index);
+    audioElement.play().then(() => {
+      document.getElementById('icon-play').style.display = 'none';
+      document.getElementById('icon-pause').style.display = 'block';
+      isPlaying = true;
+    }).catch(e => console.log("Play error:", e));
+    
+    closeMusicModal();
+  }
+
   function togglePlay() {
+    // Cek apakah yang sedang aktif adalah YouTube (ada isi iframe)
+    const isYoutubeActive = youtubeContainer && youtubeContainer.innerHTML.trim() !== '';
+
+    if (isYoutubeActive) {
+      // Jika dari YouTube, tombol toggle pause menghentikan iframe YouTube
+      youtubeContainer.innerHTML = '';
+      document.getElementById('icon-play').style.display = 'block';
+      document.getElementById('icon-pause').style.display = 'none';
+      document.getElementById('track-title').innerText = "Pilih atau Masukkan Lagu";
+      document.getElementById('track-artist').innerText = "Rumah Bocah Music";
+      isPlaying = false;
+      return;
+    }
+
+    // Kontrol Normal Audio Lokal
     if (isPlaying) {
       audioElement.pause();
       document.getElementById('icon-play').style.display = 'block';
@@ -103,16 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function playTrack(index) {
-    loadTrack(index);
-    audioElement.play().then(() => {
-      document.getElementById('icon-play').style.display = 'none';
-      document.getElementById('icon-pause').style.display = 'block';
-      isPlaying = true;
-    }).catch(e => console.log("Play error:", e));
-    closeMusicModal();
-  }
-
   const toggleBtn = document.getElementById('player-toggle-btn');
   if (toggleBtn) toggleBtn.onclick = togglePlay;
 
@@ -120,8 +143,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (nextBtn) {
     nextBtn.onclick = () => {
       if (typeof MUSIC_PLAYLIST === 'undefined') return;
+      // Jika YouTube aktif, hentikan dulu lalu ke playlist lokal
+      if (youtubeContainer) youtubeContainer.innerHTML = '';
       currentTrackIndex = (currentTrackIndex + 1) % MUSIC_PLAYLIST.length;
-      playTrack(currentTrackIndex);
+      playTrackFromPlaylist(currentTrackIndex);
     };
   }
 
@@ -129,8 +154,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (prevBtn) {
     prevBtn.onclick = () => {
       if (typeof MUSIC_PLAYLIST === 'undefined') return;
+      if (youtubeContainer) youtubeContainer.innerHTML = '';
       currentTrackIndex = (currentTrackIndex - 1 + MUSIC_PLAYLIST.length) % MUSIC_PLAYLIST.length;
-      playTrack(currentTrackIndex);
+      playTrackFromPlaylist(currentTrackIndex);
     };
   }
 
@@ -171,7 +197,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!musicModal) return;
     musicModal.classList.add('active');
 
-    // Aktifkan tab yang sesuai (playlist-section atau youtube-section)
     document.querySelectorAll('.music-tabs .tab-btn').forEach(b => {
       if (b.getAttribute('data-target') === tabTarget) {
         b.classList.add('active');
@@ -213,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Tab Switcher di dalam Modal Musik
+  // Tab Switcher
   const tabButtons = document.querySelectorAll('.music-tabs .tab-btn');
   tabButtons.forEach(btn => {
     btn.onclick = (e) => {
@@ -227,41 +252,51 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   });
 
-  // Fitur Custom YouTube Link
+  // Fitur Custom YouTube Link dengan Buffering Indicator
   const playYoutubeBtn = document.getElementById('play-youtube-btn');
   if (playYoutubeBtn) {
     playYoutubeBtn.onclick = () => {
       const urlInput = document.getElementById('youtube-url-input');
       if (!urlInput) return;
       const url = urlInput.value;
-      const videoIdMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+      const videoIdMatch = url.match(/(?:youtu\.bex\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/) || url.match(/(?:youtu\.be\/)([\w-]{11})/);
       
-      if (videoIdMatch && videoIdMatch[1]) {
-        const videoId = videoIdMatch[1];
-        const container = document.getElementById('youtube-player-container');
-        if (container) {
-          container.innerHTML = `<iframe width="0" height="0" src="https://www.youtube.com/embed/${videoId}?autoplay=1" allow="autoplay"></iframe>`;
-        }
+      // Deteksi regex umum untuk link youtu.be dan youtube.com watch
+      const validMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+
+      if (validMatch && validMatch[1]) {
+        const videoId = validMatch[1];
         
-        audioElement.pause(); // Jeda audio lokal
+        // 1. Jeda audio lokal terlebih dahulu agar tidak bentrok
+        audioElement.pause();
+
+        // 2. Tampilkan status Buffering / Loading di Bar Footer
         const trackTitle = document.getElementById('track-title');
         const trackArtist = document.getElementById('track-artist');
-        const iconPlay = document.getElementById('icon-play');
-        const iconPause = document.getElementById('icon-pause');
+        if (trackTitle) trackTitle.innerHTML = `<span class="buffering-spinner"></span> Memuat YouTube...`;
+        if (trackArtist) trackArtist.innerText = "Buffering...";
 
-        if (trackTitle) trackTitle.innerText = "Custom YouTube Audio";
-        if (trackArtist) trackArtist.innerText = "Streaming dari Link";
-        if (iconPlay) iconPlay.style.display = 'none';
-        if (iconPause) iconPause.style.display = 'block';
-        isPlaying = true;
-        
         closeMusicModal();
+
+        // 3. Masukkan iframe YouTube setelah jeda singkat simulasi buffering (atau langsung load)
+        setTimeout(() => {
+          if (youtubeContainer) {
+            youtubeContainer.innerHTML = `<iframe width="0" height="0" src="https://www.youtube.com/embed/${videoId}?autoplay=1" allow="autoplay"></iframe>`;
+          }
+          if (trackTitle) trackTitle.innerText = "Custom YouTube Audio";
+          if (trackArtist) trackArtist.innerText = "Streaming dari Link";
+          
+          document.getElementById('icon-play').style.display = 'none';
+          document.getElementById('icon-pause').style.display = 'block';
+          isPlaying = true;
+        }, 1200); // Simulasi efek loading/buffering 1.2 detik agar logo mutar terlihat menarik
+
       } else {
         alert("Link YouTube tidak valid! Pastikan format link benar.");
       }
     };
   }
 
-  // Jalankan inisialisasi awal pemutar musik
+  // Inisialisasi awal
   initMusicPlayer();
 });
