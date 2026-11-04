@@ -18,7 +18,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-main);
   line-height: 1.6;
-  padding: 2rem 1rem 90px 1rem; /* Padding bawah ditambah agar konten tidak tertutup music bar */
+  padding: 2rem 1rem 90px 1rem; /* Padding bawah ditambah agar tidak tertutup player bar */
   min-height: 100vh;
 }
 
