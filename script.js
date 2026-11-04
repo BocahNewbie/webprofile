@@ -252,33 +252,38 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   });
 
-  // Fitur Custom YouTube Link dengan Buffering Indicator
+  // Fitur Custom YouTube Link dengan Buffering Indicator di Bar Bawah
   const playYoutubeBtn = document.getElementById('play-youtube-btn');
   if (playYoutubeBtn) {
     playYoutubeBtn.onclick = () => {
       const urlInput = document.getElementById('youtube-url-input');
       if (!urlInput) return;
       const url = urlInput.value;
-      const videoIdMatch = url.match(/(?:youtu\.bex\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/) || url.match(/(?:youtu\.be\/)([\w-]{11})/);
       
-      // Deteksi regex umum untuk link youtu.be dan youtube.com watch
+      // Validasi link YouTube (mendukung youtu.be dan youtube.com)
       const validMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
 
       if (validMatch && validMatch[1]) {
         const videoId = validMatch[1];
         
-        // 1. Jeda audio lokal terlebih dahulu agar tidak bentrok
+        // 1. Jeda audio lokal dari playlist agar tidak bentrok
         audioElement.pause();
 
-        // 2. Tampilkan status Buffering / Loading di Bar Footer
+        // 2. Tampilkan logo buffering dan teks tepat di bar bawah lagu
         const trackTitle = document.getElementById('track-title');
         const trackArtist = document.getElementById('track-artist');
-        if (trackTitle) trackTitle.innerHTML = `<span class="buffering-spinner"></span> Memuat YouTube...`;
-        if (trackArtist) trackArtist.innerText = "Buffering...";
+        
+        if (trackTitle) {
+          trackTitle.innerHTML = `<span class="buffering-spinner"></span> Memuat YouTube...`;
+        }
+        if (trackArtist) {
+          trackArtist.innerText = "Mohon tunggu sebentar";
+        }
 
+        // Tutup modal pop-up
         closeMusicModal();
 
-        // 3. Masukkan iframe YouTube setelah jeda singkat simulasi buffering (atau langsung load)
+        // 3. Masukkan iframe YouTube setelah simulasi/proses loading selesai
         setTimeout(() => {
           if (youtubeContainer) {
             youtubeContainer.innerHTML = `<iframe width="0" height="0" src="https://www.youtube.com/embed/${videoId}?autoplay=1" allow="autoplay"></iframe>`;
@@ -289,14 +294,13 @@ document.addEventListener('DOMContentLoaded', () => {
           document.getElementById('icon-play').style.display = 'none';
           document.getElementById('icon-pause').style.display = 'block';
           isPlaying = true;
-        }, 1200); // Simulasi efek loading/buffering 1.2 detik agar logo mutar terlihat menarik
+        }, 1500); // Durasi animasi buffering berputar selama 1.5 detik
 
       } else {
         alert("Link YouTube tidak valid! Pastikan format link benar.");
       }
     };
   }
-
   // Inisialisasi awal
   initMusicPlayer();
 });
