@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   });
 
-  // Fitur Custom YouTube Link dengan Buffering Indicator di Bar Bawah
+  // Fitur Custom YouTube Link dengan Auto-Stop Buffering Saat Siap
   const playYoutubeBtn = document.getElementById('play-youtube-btn');
   if (playYoutubeBtn) {
     playYoutubeBtn.onclick = () => {
@@ -260,7 +260,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!urlInput) return;
       const url = urlInput.value;
       
-      // Validasi link YouTube (mendukung youtu.be dan youtube.com)
       const validMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
 
       if (validMatch && validMatch[1]) {
@@ -269,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 1. Jeda audio lokal dari playlist agar tidak bentrok
         audioElement.pause();
 
-        // 2. Tampilkan logo buffering dan teks tepat di bar bawah lagu
+        // 2. Tampilkan logo buffering dan teks di bar bawah lagu
         const trackTitle = document.getElementById('track-title');
         const trackArtist = document.getElementById('track-artist');
         
@@ -277,24 +276,34 @@ document.addEventListener('DOMContentLoaded', () => {
           trackTitle.innerHTML = `<span class="buffering-spinner"></span> Memuat YouTube...`;
         }
         if (trackArtist) {
-          trackArtist.innerText = "Mohon tunggu sebentar";
+          trackArtist.innerText = "Mengambil data stream...";
         }
 
-        // Tutup modal pop-up
+        // Tutup modal pop-up secara interaktif
         closeMusicModal();
 
-        // 3. Masukkan iframe YouTube setelah simulasi/proses loading selesai
-        setTimeout(() => {
-          if (youtubeContainer) {
-            youtubeContainer.innerHTML = `<iframe width="0" height="0" src="https://www.youtube.com/embed/${videoId}?autoplay=1" allow="autoplay"></iframe>`;
-          }
-          if (trackTitle) trackTitle.innerText = "Custom YouTube Audio";
-          if (trackArtist) trackArtist.innerText = "Streaming dari Link";
+        // 3. Buat elemen iframe dan deteksi event 'onload' (Buffering selesai saat iframe siap)
+        if (youtubeContainer) {
+          youtubeContainer.innerHTML = ''; // Bersihkan kontainer lama
           
-          document.getElementById('icon-play').style.display = 'none';
-          document.getElementById('icon-pause').style.display = 'block';
-          isPlaying = true;
-        }, 1500); // Durasi animasi buffering berputar selama 1.5 detik
+          const iframe = document.createElement('iframe');
+          iframe.width = "0";
+          iframe.height = "0";
+          iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+          iframe.allow = "autoplay";
+
+          // Ketika iframe selesai dimuat oleh browser, buffering otomatis berhenti dan lagu mulai
+          iframe.onload = () => {
+            if (trackTitle) trackTitle.innerText = "Custom YouTube Audio";
+            if (trackArtist) trackArtist.innerText = "Streaming dari Link";
+            
+            document.getElementById('icon-play').style.display = 'none';
+            document.getElementById('icon-pause').style.display = 'block';
+            isPlaying = true;
+          };
+
+          youtubeContainer.appendChild(iframe);
+        }
 
       } else {
         alert("Link YouTube tidak valid! Pastikan format link benar.");
