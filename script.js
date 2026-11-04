@@ -89,9 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('track-artist').innerText = MUSIC_PLAYLIST[index].artist;
   }
 
-  // Fungsi Putar dari Playlist (Mematikan YouTube jika sedang aktif)
+  // Fungsi Putar dari Playlist (Matikan YouTube agar tidak bentrok)
   function playTrackFromPlaylist(index) {
-    // Matikan pemutar YouTube agar tidak bentrok
     if (youtubeContainer) {
       youtubeContainer.innerHTML = '';
     }
@@ -107,16 +106,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function togglePlay() {
-    // Cek apakah yang sedang aktif adalah YouTube (ada isi iframe)
     const isYoutubeActive = youtubeContainer && youtubeContainer.innerHTML.trim() !== '';
 
     if (isYoutubeActive) {
-      // Jika dari YouTube, tombol toggle pause menghentikan iframe YouTube
+      // Jika dari YouTube, matikan iframe
       youtubeContainer.innerHTML = '';
       document.getElementById('icon-play').style.display = 'block';
       document.getElementById('icon-pause').style.display = 'none';
       document.getElementById('track-title').innerText = "Pilih atau Masukkan Lagu";
       document.getElementById('track-artist').innerText = "Rumah Bocah Music";
+      
+      document.getElementById('current-time').innerText = "0:00";
+      document.getElementById('duration').innerText = "0:00";
+      document.getElementById('progress-bar').value = 0;
+      
       isPlaying = false;
       return;
     }
@@ -143,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (nextBtn) {
     nextBtn.onclick = () => {
       if (typeof MUSIC_PLAYLIST === 'undefined') return;
-      // Jika YouTube aktif, hentikan dulu lalu ke playlist lokal
       if (youtubeContainer) youtubeContainer.innerHTML = '';
       currentTrackIndex = (currentTrackIndex + 1) % MUSIC_PLAYLIST.length;
       playTrackFromPlaylist(currentTrackIndex);
@@ -160,24 +162,41 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
+  // Update Durasi & Progress Bar Audio Lokal Secara Akurat
+  audioElement.addEventListener('loadedmetadata', () => {
+    const durationEl = document.getElementById('duration');
+    if (durationEl) durationEl.innerText = formatTime(audioElement.duration);
+  });
+
   audioElement.ontimeupdate = () => {
-    if (audioElement.duration) {
+    const isYoutubeActive = youtubeContainer && youtubeContainer.innerHTML.trim() !== '';
+    if (isYoutubeActive) return;
+
+    if (audioElement.duration && !isNaN(audioElement.duration)) {
       const progressPercent = (audioElement.currentTime / audioElement.duration) * 100;
       const progressBar = document.getElementById('progress-bar');
       if (progressBar) progressBar.value = progressPercent;
       
       const currentTimeEl = document.getElementById('current-time');
       const durationEl = document.getElementById('duration');
+      
       if (currentTimeEl) currentTimeEl.innerText = formatTime(audioElement.currentTime);
-      if (durationEl) durationEl.innerText = formatTime(audioElement.duration);
+      if (durationEl && (durationEl.innerText === "0:00" || durationEl.innerText === "YouTube")) {
+        durationEl.innerText = formatTime(audioElement.duration);
+      }
     }
   };
 
   const progressBar = document.getElementById('progress-bar');
   if (progressBar) {
     progressBar.oninput = (e) => {
-      const time = (e.target.value / 100) * audioElement.duration;
-      audioElement.currentTime = time;
+      const isYoutubeActive = youtubeContainer && youtubeContainer.innerHTML.trim() !== '';
+      if (isYoutubeActive) return;
+
+      if (audioElement.duration && !isNaN(audioElement.duration)) {
+        const time = (e.target.value / 100) * audioElement.duration;
+        audioElement.currentTime = time;
+      }
     };
   }
 
@@ -187,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   }
 
-  // --- KONTROL MODAL MUSIK & YOUTUBE (POP-UP INTERAKTIF) ---
+  // --- KONTROL MODAL MUSIK & YOUTUBE ---
   const musicModal = document.getElementById('music-modal');
   const playlistBtn = document.getElementById('playlist-btn');
   const youtubeCustomBtn = document.getElementById('youtube-custom-btn');
@@ -218,27 +237,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (musicModal) musicModal.classList.remove('active');
   }
 
-  if (playlistBtn) {
-    playlistBtn.onclick = () => openMusicModal('playlist-section');
-  }
-
-  if (youtubeCustomBtn) {
-    youtubeCustomBtn.onclick = () => openMusicModal('youtube-section');
-  }
-
-  if (musicModalClose) {
-    musicModalClose.onclick = closeMusicModal;
-  }
+  if (playlistBtn) playlistBtn.onclick = () => openMusicModal('playlist-section');
+  if (youtubeCustomBtn) youtubeCustomBtn.onclick = () => openMusicModal('youtube-section');
+  if (musicModalClose) musicModalClose.onclick = closeMusicModal;
 
   if (musicModal) {
     musicModal.addEventListener('click', (e) => {
-      if (e.target === musicModal) {
-        closeMusicModal();
-      }
+      if (e.target === musicModal) closeMusicModal();
     });
   }
 
-  // Tab Switcher
   const tabButtons = document.querySelectorAll('.music-tabs .tab-btn');
   tabButtons.forEach(btn => {
     btn.onclick = (e) => {
@@ -252,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   });
 
-  // Fitur Custom YouTube Link dengan Auto-Stop Buffering Saat Siap
+  // Fitur Custom YouTube Link dengan Spinner Buffering Otomatis
   const playYoutubeBtn = document.getElementById('play-youtube-btn');
   if (playYoutubeBtn) {
     playYoutubeBtn.onclick = () => {
@@ -265,10 +273,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (validMatch && validMatch[1]) {
         const videoId = validMatch[1];
         
-        // 1. Jeda audio lokal dari playlist agar tidak bentrok
+        // Jeda audio lokal
         audioElement.pause();
 
-        // 2. Tampilkan logo buffering dan teks di bar bawah lagu
+        // Tampilkan animasi buffering di bar bawah
         const trackTitle = document.getElementById('track-title');
         const trackArtist = document.getElementById('track-artist');
         
@@ -279,12 +287,11 @@ document.addEventListener('DOMContentLoaded', () => {
           trackArtist.innerText = "Mengambil data stream...";
         }
 
-        // Tutup modal pop-up secara interaktif
         closeMusicModal();
 
-        // 3. Buat elemen iframe dan deteksi event 'onload' (Buffering selesai saat iframe siap)
+        // Muat iframe dan matikan buffering otomatis saat onload siap
         if (youtubeContainer) {
-          youtubeContainer.innerHTML = ''; // Bersihkan kontainer lama
+          youtubeContainer.innerHTML = '';
           
           const iframe = document.createElement('iframe');
           iframe.width = "0";
@@ -292,7 +299,6 @@ document.addEventListener('DOMContentLoaded', () => {
           iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
           iframe.allow = "autoplay";
 
-          // Ketika iframe selesai dimuat oleh browser, buffering otomatis berhenti dan lagu mulai
           iframe.onload = () => {
             if (trackTitle) trackTitle.innerText = "Custom YouTube Audio";
             if (trackArtist) trackArtist.innerText = "Streaming dari Link";
@@ -300,6 +306,13 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('icon-play').style.display = 'none';
             document.getElementById('icon-pause').style.display = 'block';
             isPlaying = true;
+
+            const currentTimeEl = document.getElementById('current-time');
+            const durationEl = document.getElementById('duration');
+            const progressBar = document.getElementById('progress-bar');
+            if (currentTimeEl) currentTimeEl.innerText = "Live";
+            if (durationEl) durationEl.innerText = "YouTube";
+            if (progressBar) progressBar.value = 0;
           };
 
           youtubeContainer.appendChild(iframe);
@@ -310,6 +323,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
   }
-  // Inisialisasi awal
+
   initMusicPlayer();
 });
