@@ -45,7 +45,7 @@ const CONFIG = {
     ]
 };
 
-// Data 10 Lagu Pilihan (Bisa diganti link MP3-nya sesuai keinginanmu)
+// Data 10 Lagu Pilihan (Bisa kamu ganti link MP3-nya sesuai file yang kamu miliki)
 const MUSIC_PLAYLIST = [
     { title: "Lofi Study Session", artist: "Bocah Beats", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
     { title: "Chill Coding Vibe", artist: "Rumah Bocah", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
