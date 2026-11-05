@@ -145,13 +145,29 @@ document.addEventListener('DOMContentLoaded', () => {
       MUSIC_PLAYLIST.forEach((track, index) => {
         const item = document.createElement('div');
         item.className = 'playlist-item';
-        item.innerHTML = `<span>${index + 1}. ${track.title} - <small>${track.artist}</small></span> <span>▶</span>`;
+        item.innerHTML = `
+          <div>
+            <strong>${index + 1}. ${track.title}</strong> (Cover)<br>
+            <small style="color: #94a3b8;">Asli: ${track.artist} | Cover oleh: ${track.cover}</small>
+          </div>
+          <span>▶</span>
+        `;
         item.onclick = () => playTrackFromPlaylist(index);
         playlistContainer.appendChild(item);
       });
 
       loadTrack(currentTrackIndex);
     }
+  }
+
+  function loadTrack(index) {
+    if (typeof MUSIC_PLAYLIST === 'undefined') return;
+    currentTrackIndex = index;
+    const track = MUSIC_PLAYLIST[index];
+    
+    audioElement.src = track.src;
+    if (trackTitle) trackTitle.innerText = `${track.title} (Cover)`;
+    if (trackArtist) trackArtist.innerText = `Asli: ${track.artist} • Cover: ${track.cover}`;
   }
 
   function loadTrack(index) {
