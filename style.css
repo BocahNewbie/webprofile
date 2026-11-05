@@ -660,3 +660,95 @@ footer {
     transform: rotate(360deg);
   }
 }
+/* ==========================================
+   RESPONSIVE DESIGN (Tampilan HP / Mobile)
+   ========================================== */
+@media screen and (max-width: 768px) {
+  /* 1. Pengaturan Layout Utama */
+  body {
+    padding: 1rem 0.75rem 110px 0.75rem; /* Menambah padding bawah agar isi tidak tertutup player bar */
+  }
+
+  .hero {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem; /* Ukuran judul lebih kecil di HP */
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr; /* 1 Kolom penuh untuk kartu project di HP */
+    gap: 1rem;
+  }
+
+  /* 2. Pengaturan Player Bar Musik di HP */
+  .music-bar {
+    height: auto;
+    flex-direction: column; /* Mengubah susunan menjadi bertingkat */
+    padding: 10px 14px;
+    gap: 8px;
+  }
+
+  .player-left {
+    width: 100%;
+    min-width: unset;
+    justify-content: flex-start;
+  }
+
+  #track-title {
+    max-width: 220px;
+  }
+
+  .player-center {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .player-controls-sub {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .player-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .action-pill-btn {
+    flex: 1;
+    text-align: center;
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+
+  /* 3. Pengaturan Modal / Pop-up Musik & Detail di HP */
+  .modal-content, 
+  #music-modal .modal-content {
+    padding: 1.25rem;
+    max-width: 95%;
+  }
+
+  .playlist-container {
+    max-height: 200px; /* Menyesuaikan tinggi scroll daftar lagu di HP */
+  }
+
+  .playlist-item {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+}
