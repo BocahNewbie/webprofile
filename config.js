@@ -51,60 +51,60 @@ const MUSIC_PLAYLIST = [
         title: "Nanti Kita Seperti Ini",
         artist: "Batas Senja",
         cover: "Jeyma Monica",
-        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        src: "nantikitasepertiini.mp3"
     },
     {
         title: "Bergema Sampai Selamanya",
         artist: "Nadhif Basalamah",
         cover: "Aini",
-        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+        src: "bergemasampaiselamanya.mp3"
     },
     {
         title: "Sesi Potret",
         artist: "eñau feat. Ari Lesmana",
         cover: "Thalita Ayudya",
-        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+        src: "sesipotret.mp3"
     },
     {
         title: "Bersamamu",
         artist: "Vierra",
         cover: "Sasa Tasia",
-        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+        src: "bersamamu.mp3"
     },
     {
         title: "Sempurna",
         artist: "Andra and The BackBone",
         cover: "PI7U",
-        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"
+        src: "sempurna.mp3"
     },
     {
         title: "Rabun Jauh",
         artist: "Bernadya",
         cover: "VONA",
-        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3"
+        src: "rabunjauh.mp3"
     },
     {
         title: "Dunia Yang Nanti",
         artist: "Raim Laode",
         cover: "GRWtune",
-        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3"
+        src: "duniayangnanti.mp3"
     },
     {
         title: "1000x",
         artist: "Gea Indrawari",
         cover: "Shaka Music",
-        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
+        src: "1000x.mp3"
     },
     {
         title: "Jatuh Suka",
         artist: "Tulus",
         cover: "Tami Aulia",
-        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3"
+        src: "jatuhsuka.mp3"
     },
     {
         title: "Kita Lewati Berdua",
         artist: "Overnight",
         cover: "Whykustik",
-        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3"
+        src: "kitalewatiberdua.mp3"
     }
 ];
