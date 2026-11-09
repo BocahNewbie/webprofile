@@ -25,6 +25,14 @@
       "destination": "https://pendaftaran-bybn.vercel.app/:path*"
     },
     {
+      "source": "/rollname",
+      "destination": "https://sistemroll-bocah.vercel.app"
+    },
+    {
+      "source": "/rollname/:path*",
+      "destination": "https://sistemroll-bocah.vercel.app/:path*"
+    },
+    {
       "source": "/Natural",
       "destination": "https://invitation-satu.vercel.app"
     },
