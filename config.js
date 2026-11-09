@@ -23,7 +23,8 @@ const CONFIG = {
             description: "Platform formulir digital terintegrasi.",
             fullDescription: "Sistem pendaftaran online dan lainnya yang berbasis web dirancang untuk memudahkan manajemen formulir registrasi dalam skala kecil.",
             links: [
-                { label: "Buka Aplikasi Pendaftaran", url: "/pendaftaran" }
+                { label: "Aplikasi Pendaftaran", url: "/pendaftaran" },
+                { label: "Aplikasi Acak Nama", url: "/rollname" }
             ]
         },
         {
