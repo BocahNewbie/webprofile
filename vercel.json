@@ -9,11 +9,11 @@
       "destination": "https://game-bertani.vercel.app/:path*"
     },
     {
-      "source": "/racing",
+      "source": "/volly",
       "destination": "https://teambocahracing.vercel.app"
     },
     {
-      "source": "/racing/:path*",
+      "source": "/volly/:path*",
       "destination": "https://teambocahracing.vercel.app/:path*"
     },
     {
