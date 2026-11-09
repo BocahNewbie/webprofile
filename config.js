@@ -13,7 +13,7 @@ const CONFIG = {
             fullDescription: "Project game berbasis web interaktif dengan mekanik gameplay yang ringan dan responsif. Pengguna dapat langsung memainkan game tanpa perlu melakukan instalasi tambahan.",
             links: [
                 { label: "Game Bertani", url: "/bertani" },
-                { label: "Team Bocah Racing", url: "/racing" }
+                { label: "Volly Ball", url: "/volly" }
             ]
         },
         {
